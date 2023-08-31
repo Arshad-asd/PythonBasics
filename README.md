@@ -3,7 +3,6 @@
 </p>
 
 
-This repository contains Python implementations of common data structures.
 
 ### What is a data structure?
 

@@ -1,4 +1,6 @@
-
+<p align="center">
+  <a href="https://github.com/DenverCoder1/readme-typing-svg"><img src="https://readme-typing-svg.herokuapp.com?lines=Welcome+To+My+DS+Solutions+Repository!;+Lists+Stacks+Queues+Trees+Graphs+Solutions;DS%20|%20PYTHON%20|%20JAVASCRIPT%20;%20I+encourage+contributions+to+this+repository!;Always%20learning%20new%20things%20Happy+coding!&center=true&width=500&height=50"></a>
+</p>
 
 
 This repository contains Python implementations of common data structures.

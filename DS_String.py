@@ -79,3 +79,19 @@ for i,cha in enumerate(string):
 print(c)
 
 '''--------------------------------------------------------------------------------------------'''
+
+# Ways to split a string in different ways
+
+# Methods 1:
+
+def split_string(string):
+    split_string = string.split('_')
+    result = []
+    for i in range(len(split_string)):
+        temp = split_string[:i+1]
+        temp = "_".join(temp)
+        result.append(temp)
+    return result
+print(split_string("hello_digital_world"))
+
+'''--------------------------------------------------------------------------------------------'''

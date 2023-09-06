@@ -80,9 +80,10 @@ print(c)
 
 '''--------------------------------------------------------------------------------------------'''
 
-# Ways to split a string in different ways
+                                  # Ways to split a string in different ways
 
-# Methods 1:
+# 01 : Python code to split string in substring manner
+# Methods 1:  Using Iteration 
 
 def split_string(string):
     split_string = string.split('_')

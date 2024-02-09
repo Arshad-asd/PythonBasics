@@ -1456,7 +1456,7 @@ class Trie:
         dfs(self.root, "")
         print(words)
 
-
+ 
 trie = Trie()
 trie.insert("hello")
 trie.insert("world")

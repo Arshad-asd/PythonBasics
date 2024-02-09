@@ -96,3 +96,38 @@ def split_string(string):
 print(split_string("hello_digital_world"))
 
 '''--------------------------------------------------------------------------------------------'''
+# letters A-Z is 65-90, and the range for lowercase letters a-z is 97-122.
+s = 'helo world digital india'
+lists = s.split()
+res = ''
+for i in range(len(lists)):
+    if ord(lists[i][0])>=97 and ord(lists[i][0])<=122:
+        res += chr(ord(lists[i][0])-32)
+    res += lists[i][1:]
+    res += " "
+    
+print(res)
+'''--------------------------------------------------------------------------------------------'''
+                                                          #Reverse string
+
+s= 'kerala'
+
+#Method 1: Using slice
+reverse = s[::-1]
+
+#Method 2: Using loop
+i = len(s)-1
+reverse = ''
+while i >=0:
+   reverse += s[i]
+   i -=1
+print(reverse)
+
+#Method 3: using Recursion
+def reverse_string(string):
+    if len(string) <= 1:
+        return string
+    return reverse_string(string[1:])+string[0]
+string = 'arshad'
+print(string)
+print(reverse_string(string))

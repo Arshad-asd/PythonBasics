@@ -16,6 +16,31 @@ class BST:
         elif root.key < key:
             root.right = self.insert(root.right,key)
         return root
+    def delete(self,root, key):
+        if root is None:
+            return None
+
+        if root.key > key:
+            root.left = self.delete(root.left, key)
+        elif root.key < key:
+            root.right = self.delete(root.right, key)
+        else:
+            if root.left is None:
+                return root.right
+            elif root.right is None:
+                return root.left
+            else:
+                succ = self.getSucc(root.right)
+                root.key = succ.key
+                root.right = self.delete(root.right, succ.key)
+
+        return root
+
+    def getSucc(self,curr):
+        while curr.left is not None:
+            curr = curr.left
+        return curr
+
     def preorder(self, root):
         if root is not None:
             print(root.key)

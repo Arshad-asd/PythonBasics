@@ -160,4 +160,22 @@ ll.insert_start(70)
 ll.head.next.next.next.next.next = ll.head.next
 cycle = ll.has_cycle()
 print(f"its cycle {cycle}")
-#<--------------
+#<-----------------------------------------------How Would You Find Midile Linked List?------------------------------------------------------------->
+class Middle(LinkedList):
+    def find_middle(self):
+        slow = self.head
+        fast = self.head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        return slow.data
+
+Midd = Middle()
+Midd.insert_start(50)
+Midd.insert_start(200)
+Midd.insert_start(100)
+Midd.insert_start(90)
+Midd.insert_start(40)
+Midd.insert_start(70)
+res = Midd.find_middle()
+print(res)

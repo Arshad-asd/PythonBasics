@@ -131,3 +131,35 @@ def reverse_string(string):
 string = 'arshad'
 print(string)
 print(reverse_string(string))
+'''--------------------------------------------------------------------------------------------'''
+#Find is plaindrome or not
+#Method 1: Using slice
+s = 'malayalam'
+def is_pailndrome(s:str):
+    return True if s == s[::-1] else False
+
+#Method 2 : Using Loop
+def is_pailndrome(s:str):
+    res = ''
+    for i in range(len(s)-1,0,-1):
+        res += s[i]
+    res += s[-1]
+    return True if res == s else False
+
+#Method 3 : Using Recursive
+def is_pailndrome(s:str):
+    if len(s) <=1:
+        return True
+    if s[0] == s[-1]:
+        return is_pailndrome(s[1:-1])
+    else:
+        return False
+
+#Remove Palidromic words
+s = 'malayalam hello radar world not level'
+def is_pailndrome(s:str):
+    new = s.split(' ')
+    for i in range(len(new)-1,-1,-1):
+        if new[i] == new[i][::-1]:
+            new.remove(new[i])
+    return ' '.join(new)

@@ -23,3 +23,12 @@ for i in range(len(people)):
     temp = people[i]['languages']
     arr.append(temp)
 print('languages :',list(set(arr)))
+
+
+objects = [{'name':'johon','age':21},{'name':'jain','age':25},{'name':'mark','age':22}]
+for i in range(len(objects)):
+    for j in range(len(objects)-i-1):
+        if objects[j]["age"] > objects[j+1]['age']:
+            objects[j],objects[j+1]=objects[j+1],objects[j]
+
+print(objects)

@@ -58,16 +58,16 @@ class BST:
             self.postorder(root.left)
             self.postorder(root.right)
             print(root.key)
-    def dfs(self,root):
+    def bfs(self,root):
         result = []
-        def dfs_recursive(node,level):
+        def bfs_recurse(node,level):
             if node is not None:
                 if len(result) <= level:
                     result.append([])
                 result[level].append(node.key)
-                dfs_recursive(node.left,level+1)
-                dfs_recursive(node.right,level+1)
-        dfs_recursive(root,0)
+                bfs_recurse(node.left,level+1)
+                bfs_recurse(node.right,level+1)
+        bfs_recurse(root,0)
         print(result)
     def search(self,root,key):
         if root is None or root.key == key:
@@ -95,7 +95,7 @@ print('preorder')
 bst.inorder(bst.root)
 print('postorder')
 bst.postorder(bst.root)
-bst.dfs(bst.root)
+bst.bfs(bst.root)
 search_result = bst.search(bst.root, 3)
 if search_result:
     print(f"Key  found in the BST.")

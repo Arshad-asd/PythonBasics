@@ -55,3 +55,18 @@ for i in range(len(arr)-1):
             result.append(missing)
 print(result)
 
+#Find prime numbers in given arra
+def isprime(num):
+    if num < 2:
+        return False
+    for n in range(2, int(num**0.5) + 1):
+        if num % n == 0:
+            return False
+    return True
+
+arr = [1, 2, 3, 4, 5, 7, 8, 9, 11, 13, 12, 14, 15]
+
+print("Prime numbers in the list arr are:")
+for num in arr:
+    if isprime(num):
+        print(num, end=" ")

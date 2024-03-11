@@ -61,7 +61,7 @@ class BST:
     def bfs(self,root):
         result = []
         def bfs_recurse(node,level):
-            if node is not None:
+            if node is not None:    
                 if len(result) <= level:
                     result.append([])
                 result[level].append(node.key)

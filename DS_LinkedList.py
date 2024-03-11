@@ -1,17 +1,30 @@
 
-#<-----------------------------------------------Linked list Node create------------------------------------------------------------->
+'''
+1 . Node Intialize
+2 . Linked List Creation,Traversing,Insert_start,Insert_end,Find_len 
+3 . Add Element Particular Postion
+4 . Remove Element Particular Postion
+5 . Find Duplicate
+6 . Remove Nth Node From End of List
+7 . Detect a Cycle in a Linked List
+8 . Find Midile Linked Lis
+9 . Sort Linked List
+'''
+
+
+#<----------------------------------------------1-Linked list Node create------------------------------------------------------------->
 
 class Node:
     def __init__(self,data):
         self.data = data
         self.next = None
 
-#<-----------------------------------------------Linked list creation------------------------------------------------------------->
+#<----------------------------------------------2-Linked list creation------------------------------------------------------------->
 class LinkedList:
     def __init__(self):
         self.head = None
         self.last_node = None
-    def display(self):
+    def traverse(self):
         current = self.head
         while current:
             print(current.data,"-->",end="")
@@ -38,10 +51,13 @@ class LinkedList:
             self.head = self.head.next
             return self.display()
         current = self.head
-        while current.next:
+        while current and current.next:
             if current.data == target:
                 current.next = current.next.next
-            current = current.next
+                if not current.next:
+                    current.next = self.last_node
+            else:
+                current = current.next
     def find_len(self):
         current = self.head
         count = 0
@@ -54,8 +70,31 @@ class LinkedList:
 # LL.insert_start(200)
 # LL.insert_end(50)
 # LL.insert_end(100)
-# LL.display()
-#<-----------------------------------------------Linked list to DELETE elment particular POSTION------------------------------------------------------------->
+# LL.traverse()
+
+#<----------------------------------------------3-Linked list to Add elment particular POSTION------------------------------------------------------------->
+class PossitionAdd(LinkedList):
+    def add_specific(self, val, position):
+        if position < 0:
+            return "wrong position"
+        new_node = Node(val)
+
+        if position == 0:
+            new_node.next = self.head
+            self.head = new_node
+            if self.last is None:
+                self.last = new_node
+        current = self.head
+        index = 0
+        while current and index < position-1:
+            current = current.next
+            index +=1
+        if current is None:
+            return "Index out of range"
+        new_node.next = current.next
+        current.next = new_node
+
+#<----------------------------------------------4-Linked list to DELETE elment particular POSTION------------------------------------------------------------->
 
 class PostionDelete(LinkedList):
     def delete(self,postion):
@@ -82,7 +121,7 @@ class PostionDelete(LinkedList):
 # postde.insert_start(100)
 # postde.delete(2)
 # postde.display()
-#<-----------------------------------------------Linked list Find duplicate------------------------------------------------------------->
+#<----------------------------------------------5-Linked list Find duplicate------------------------------------------------------------->
 class FindDuplicate(LinkedList):
     def duplicates(self):
         current = self.head
@@ -109,7 +148,7 @@ class FindDuplicate(LinkedList):
 # find_dup.insert_start(200)
 # find_dup.insert_start(100)
 # find_dup.display_duplicates()
-#<-----------------------------------------------Linked list Remove Nth Node From End of List------------------------------------------------------------->
+#<----------------------------------------------6-Linked list Remove Nth Node From End of List------------------------------------------------------------->
 class Remove(LinkedList):
     def remove_nth(self,n):
         length = self.find_len()
@@ -136,7 +175,7 @@ class Remove(LinkedList):
 # ll.display()
 # ll.remove_nth(2)
 # ll.display()
-# #<-----------------------------------------------How Would You Detect a Cycle in a Linked List?------------------------------------------------------------->
+# #<----------------------------------------------7-How Would You Detect a Cycle in a Linked List?------------------------------------------------------------->
 class FloydsCycle(LinkedList):
     def has_cycle(self):
         if not self.head or not self.head.next:
@@ -160,7 +199,7 @@ ll.insert_start(70)
 ll.head.next.next.next.next.next = ll.head.next
 cycle = ll.has_cycle()
 print(f"its cycle {cycle}")
-#<-----------------------------------------------How Would You Find Midile Linked List?------------------------------------------------------------->
+#<----------------------------------------------8-How Would You Find Midile Linked List?------------------------------------------------------------->
 class Middle(LinkedList):
     def find_middle(self):
         slow = self.head
@@ -179,3 +218,19 @@ Midd.insert_start(40)
 Midd.insert_start(70)
 res = Midd.find_middle()
 print(res)
+
+#<----------------------------------------------9-How Would You Sort Linked List?------------------------------------------------------------->
+
+def buble_sorting(self):
+    outer = self.head
+    while outer:
+        inner = self.head
+        while inner and inner.next:
+            if inner.val > inner.next.val:
+                temp = inner.next.val
+                inner.next.val = inner.val
+                inner.val = temp
+            else:
+                inner = inner.next
+        outer = outer.next
+    return self.traverse()

@@ -1,4 +1,22 @@
+#<----------------------------------------------------------- --BUBBLE SORT’S-Start----------------------------------------------------------------------------------------->
+"""
+*What is a bubble sort?
 
+Bubble sort is a sorting algorithm that starts from the first element of an array and compares it with the second element. 
+If the first element is greater than the second, we swap them. It continues this process until the end of the array, with the largest elements “bubbling” to the top.
+
+*WHAT IS BUBBLE SORT’S TIME COMPLEXITY?
+
+Worst-Case Time Complexity: O(n²)
+Average Time Complexity: O(n²)
+Best-Case Time Complexity: O(n). The array is already sorted.
+
+*Use cases 
+
+Small Data Sets
+Nearly Sorted Data
+
+"""
 def buble_sort(array):
     for i in range(len(array)):
         for j in range(0, len(array)-i-1):
@@ -10,7 +28,17 @@ def buble_sort(array):
 arr = [90, 80, 70, 2, 50, 40, 1, 2, 3]
 print(buble_sort(arr))
 
+#<----------------------------------------------------------- --BUBBLE SORT’S-Start----------------------------------------------------------------------------------------->
 
+"""
+What is Insertion sort
+
+Insertion sort is a simple sorting algorithm that builds the final sorted array (or list) one element at a time. 
+It iterates over the input array and, at each iteration, removes one element from the input data, finds the location it belongs to in the sorted array, 
+and inserts it into that location. It repeats this process until the entire array is sorted.
+
+
+"""
 def insertion_sort(arr):
     for i in range(len(arr)):
         key = arr[i]

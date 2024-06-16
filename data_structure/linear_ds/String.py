@@ -163,3 +163,42 @@ def is_pailndrome(s:str):
         if new[i] == new[i][::-1]:
             new.remove(new[i])
     return ' '.join(new)
+
+# join two string using + operator
+string1 = "hello"
+string2 = "wrold"
+def join_string(string1,string2):
+    result = string1 + " " + string2
+    return result
+
+# join two string using join method
+def join_strings(string1,string2):
+    result = " ".join([string1,string2])
+    return result
+
+#white spaces remove given string
+string_with_spaces = "Hello   World\t\nPython"
+result = ''.join(char for char in string_with_spaces if not char.isspace())
+print('reomve space :',result)
+
+#  function to convert string to int with a fallback (when it’s not numbers) of 0
+def string_to_int(s:str,fall_back=0)->int:
+    try:
+        return int(s)
+    except ValueError:
+        return fall_back
+
+print(string_to_int('123'))
+
+
+#longest word in a string
+def logest_word(s:str)->str:
+    words = s.split()
+    max_word = words[0]
+    for word in words:
+        if len(word) > len(max_word):
+            max_word = word
+    return max_word
+
+s = 'welcome to the programming world of python'
+print(logest_word(s))

@@ -91,7 +91,7 @@ class Stack:
                 self.rear = None
                 self.front = None
             else:
-                self.frot = self.front.next
+                self.front = self.front.next
         return removed
     def peek(self):
         if self.front is None:
@@ -103,3 +103,57 @@ class Stack:
         while current:
             print(current.data,'-->',end="")
         print()
+#<--------------------------------------------------------Satack-Implementation-Using-Queue--------------------------------------------------------------------------->
+
+class MyStack:
+    def __init__(self):
+        self.queue1 = []
+        self.queue2 = []
+
+    def push(self, x: int) -> None:
+        self.queue1.append(x)
+
+    def pop(self) -> int:
+        if not self.queue1:
+            return None
+        while len(self.queue1) > 1:
+            self.queue2.append(self.queue1.pop(0))
+        popped_element = self.queue1.pop(0)
+        self.queue1, self.queue2 = self.queue2, self.queue1
+        return popped_element
+
+    def top(self) -> int:
+        if not self.queue1:
+            return None
+        while len(self.queue1) > 1:
+            self.queue2.append(self.queue1.pop(0))
+        top_element = self.queue1[0]
+        self.queue2.append(self.queue1.pop(0))
+        self.queue1, self.queue2 = self.queue2, self.queue1
+        return top_element
+
+    def empty(self) -> bool:
+        return not self.queue1
+#<--------------------------------------------------------Queue-Implementation-Using-Satack--------------------------------------------------------------------------->
+class MyQueue:
+    def __init__(self):
+        self.stack1 = []
+        self.stack2 = []
+
+    def push(self, x: int) -> None:
+        self.stack1.append(x)
+
+    def pop(self) -> int:
+        if not self.stack2:
+            while self.stack1:
+                self.stack2.append(self.stack1.pop())
+        return self.stack2.pop() if self.stack2 else None
+
+    def peek(self) -> int:
+        if not self.stack2:
+            while self.stack1:
+                self.stack2.append(self.stack1.pop())
+        return self.stack2[-1] if self.stack2 else None
+
+    def empty(self) -> bool:
+        return not self.stack1 and not self.stack2

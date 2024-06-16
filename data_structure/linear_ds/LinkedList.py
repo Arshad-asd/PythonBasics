@@ -1,5 +1,40 @@
 
 '''
+What is a Linked List? :-
+A linked list is a data structure that consists of a sequence of elements, where each element (referred to as a node) contains data and a reference (or link)
+to the next node in the sequence. Unlike arrays, linked lists do not require contiguous memory allocation, allowing for efficient insertions and deletions.
+
+Types of Linked Lists :-
+* Singly Linked List: Each node contains data and a reference to the next node.
+* Doubly Linked List: Each node contains data, a reference to the next node, and a reference to the previous node.
+* Circular Linked List: In this variant, the last node points back to the first node, forming a circle.
+
+Use Case of Linked Lists :-
+* Dynamic Memory Allocation: Linked lists can easily grow and shrink in size by adding or removing nodes, making them suitable for applications where the size of
+the data structure is not known in advance.
+
+* Efficient Insertions/Deletions: Linked lists allow for efficient insertions and deletions, particularly in scenarios where these operations occur frequently, 
+such as in implementing stacks, queues, and other dynamic data structures.  
+
+*Real-time Applications: Linked lists are used in real-time applications where memory constraints are tight and dynamic memory management is crucial, 
+such as in operating systems and embedded systems.
+
+Basic Operations and Time Complexity :-
+Insertion
+
+At the beginning: O(1)
+At the end: O(n) for singly linked lists (O(1) if tail pointer is maintained), O(1) for doubly linked lists with a tail pointer.
+At a specific position: O(n)
+Deletion
+
+From the beginning: O(1)
+From the end: O(n) for singly linked lists, O(1) for doubly linked lists with a tail pointer.
+From a specific position: O(n)
+Traversal: O(n)
+
+Search: O(n)
+
+Practicals :- 
 1 . Node Intialize
 2 . Linked List Creation,Traversing,Insert_start,Insert_end,Find_len 
 3 . Add Element Particular Postion
@@ -234,3 +269,23 @@ def buble_sorting(self):
                 inner = inner.next
         outer = outer.next
     return self.traverse()
+
+#<----------------------------------------------9-How Would You Reverse Linked List?------------------------------------------------------------->
+class ReverseLL(LinkedList):
+    def reverse(self):
+        current = self.head
+        prev = None
+        while current:
+            new_node = current.next
+            current.next = prev
+            prev = current
+            current = new_node
+        self.head = prev
+
+ll = ReverseLL()
+ll.insert_start(10)
+ll.insert_end(20)
+ll.insert_end(30)
+ll.traverse()
+ll.reverse()
+ll.traverse()

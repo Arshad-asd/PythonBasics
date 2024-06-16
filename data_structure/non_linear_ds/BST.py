@@ -9,7 +9,7 @@ class BST:
     def insert(self,root,key):
         if root is None:
             return TreeNode(key)
-        if root.key == key:
+        if root.key == key: 
            return root
         elif root.key > key:
             root.left = self.insert(root.left,key)
@@ -69,12 +69,14 @@ class BST:
                 bfs_recurse(node.right,level+1)
         bfs_recurse(root,0)
         print(result)
-    def search(self,root,key):
-        if root is None or root.key == key:
-            return root
-        if root.key > key:
-            return self.search(root.left,key)
-        return self.search(root.right,key)
+    def traversing(self,root,key):
+         if root is None:
+              return False
+         if root.key == key:
+              return True
+         if root.key > key:
+              return self.traversing(root.left,key)
+         return self.traversing(root.right,key)
     
     def is_valid_BST(self,root,min_val = float('-inf'),max_val = float('inf')):
         if root is None:
@@ -82,7 +84,6 @@ class BST:
         if not min_val < root.key < max_val:
             return False
         return self.is_valid_BST(root.left,min_val,root.key) and self.is_valid_BST(root.right,root.key,max_val)
-        
 
 bst = BST()
 bst.root = bst.insert(bst.root,10)

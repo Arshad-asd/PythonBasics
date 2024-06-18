@@ -1,86 +1,76 @@
+#===========================================================String_Wrokouts==Start===========================================================================================
+'''
+A string in Python is a sequence of characters enclosed in single, double, or triple quotes.
+Strings are immutable, meaning that once they are created, their content cannot be changed.
 
+Use of String Data Type :-
+1.Text Manipulation:
+Strings are widely used for text manipulation, including tasks like searching, slicing, and concatenating text.
 
-'''--------------------------------------------------------------------------------------------'''
-# 1. Write a Python program to calculate the length of a string.
+2.Data Storage:
+Strings are used to store data such as names, addresses, and descriptions in databases and files.
 
-# Methods 1:
+3.Input and Output:
+Strings are essential for handling user input and displaying output.
 
-# Using the built-in function len. The built-in function len returns the number of items in a container. 
+4.File Operations:
+Strings are used to read from and write to files.
 
-string = "hello world"
-print(len(string))
+5.String Formatting:
+Formatting strings is crucial for creating well-structured output and reports.
 
-# Methods 2:
+6.Regular Expressions:
+Strings are used in conjunction with regular expressions for pattern matching and validation tasks.
 
-# Using for loop and in operator. A string can be iterated over, directly in a for loop.
-# Maintaining a count of the number of iterations will result in the length of the string.
+Built-in Methods for Strings :-
+upper(): Converts all characters to uppercase.
+lower(): Converts all characters to lowercase.
+strip(): Removes leading and trailing whitespace.
+replace(): Replaces a substring with another substring.
+find(): Finds the first occurrence of a substring.
+split(): Splits the string into a list based on a delimiter.
+join(): Joins a list of strings into a single string with a delimiter.
 
-def find_len(string):
-    counter = 0
-    for i in string:
-        counter +=1
-    return counter
-print(find_len("hello_world"))
+capitalize(): Capitalizes the first character of the string.
+casefold(): Converts string to lowercase.
+center(width, [fillchar]): Centers the string within a specified width.
+count(sub, [start, end]): Counts occurrences of a substring.
+encode([encoding, errors]): Encodes the string.
+endswith(suffix, [start, end]): Checks if the string ends with the specified suffix.
+expandtabs([tabsize]): Expands tabs to spaces.
+find(sub, [start, end]): Finds the first occurrence of a substring.
+format(*args, **kwargs): Formats the string.
+format_map(mapping): Formats the string using a dictionary.
+index(sub, [start, end]): Finds the first occurrence of a substring (raises ValueError if not found).
+isalnum(): Checks if all characters are alphanumeric.
+isalpha(): Checks if all characters are alphabetic.
+isascii(): Checks if all characters are ASCII.
+isdecimal(): Checks if all characters are decimal.
+isdigit(): Checks if all characters are digits.
+isidentifier(): Checks if the string is a valid identifier.
+islower(): Checks if all characters are lowercase.
+isnumeric(): Checks if all characters are numeric.
+isprintable(): Checks if all characters are printable.
+isspace(): Checks if all characters are whitespace.
+istitle(): Checks if the string is in title case.
+isupper(): Checks if all characters are uppercase.
+ljust(width, [fillchar]): Left-justifies the string within a specified width.
+lstrip([chars]): Strips leading characters.
+maketrans(x[, y[, z]]): Returns a translation table.
+partition(sep): Partitions the string into a tuple.
+removeprefix(prefix): Removes the specified prefix.
+removesuffix(suffix): Removes the specified suffix.
+rfind(sub, [start, end]): Finds the last occurrence of a substring.
+rindex(sub, [start, end]): Finds the last occurrence of a substring (raises ValueError if not found).
+rjust(width, [fillchar]): Right-justifies the string within a specified width.
+rpartition(sep): Partitions the string into a tuple from the right.
+rsplit(sep, [maxsplit]): Splits the string from the right.
+rstrip([chars]): Strips trailing characters.
+splitlines([keepends]): Splits the string at line breaks.
 
-# Methods 3:
+'''
 
-#Using while loop and Slicing. We slice a string making it shorter by 1 at each iteration will eventually result in an empty string.
-#  This is when while loop stops.Maintaining a count of the number of iterations will result in the length of the string. 
-
-def find_len(string):
-    counter = 0
-    while string[counter:]:
-        counter +=1
-    return counter
-print(find_len("python_world"))
-
-# Methods 4:
-
-# Using string methods join and count. The join method of strings takes in an iterable and returns a string which is the concatenation of the strings in the iterable.
-#  The separator between the elements is the original string on which the method is called.
-#  Using join and counting the joined string in the original string will also result in the length of the string. 
-
-def find_len(string):
-    if not string:
-        return 0
-    else:
-        some_random_str = 'py'
-        return ((some_random_str).join(string)).count(some_random_str) + 1
-print(find_len("hi_all"))
-
-# Methods 5:
-
-# Using reduce method.
-#  Reduce method is used to iterate over the string and return a result of collection element provided to the reduce function.
-#  We will iterate over the string character by character and count 1 to result each time. 
-
-import functools
-def find_len(string):
-    return functools.reduce(lambda x,y: x+1, string, 0)
-print(find_len("welcome_all_this_word"))
-
-# Methods 6:
-
-#Using sum() and list comprehension function.
-#  We use list comprehension for iterating over the string and sum function to sum total characters in string 
-
-def find_len(string):
-    return sum( 1 for i in string )
-print(find_len("django"))
-
-# Methods 7:
-
-# Using enumerate function
-
-string ="abc"
-c =0
-for i,cha in enumerate(string):
-    c +=1
-print(c)
-
-'''--------------------------------------------------------------------------------------------'''
-
-                                  # Ways to split a string in different ways
+#<----------------------------------------------------------Ways to split a string in different ways-start------------------------------------------------------------->
 
 # 01 : Python code to split string in substring manner
 # Methods 1:  Using Iteration 
@@ -95,8 +85,9 @@ def split_string(string):
     return result
 print(split_string("hello_digital_world"))
 
-'''--------------------------------------------------------------------------------------------'''
-# letters A-Z is 65-90, and the range for lowercase letters a-z is 97-122.
+#<----------------------------------------------------------Ways to split a string in different ways-End------------------------------------------------------------->
+
+#<----------------------------------------------------------Each_word_first_letter_to_capital-start------------------------------------------------------------------>
 s = 'helo world digital india'
 lists = s.split()
 res = ''
@@ -107,8 +98,8 @@ for i in range(len(lists)):
     res += " "
     
 print(res)
-'''--------------------------------------------------------------------------------------------'''
-                                                          #Reverse string
+#<----------------------------------------------------------Each_word_first_letter_to_capital-End-------------------------------------------------------------------->
+#<----------------------------------------------------------Reverse_word-start--------------------------------------------------------------------------------------->
 
 s= 'kerala'
 
@@ -131,8 +122,9 @@ def reverse_string(string):
 string = 'arshad'
 print(string)
 print(reverse_string(string))
-'''--------------------------------------------------------------------------------------------'''
-#Find is plaindrome or not
+#<----------------------------------------------------------Reverse_word-End--------------------------------------------------------------------------------------->
+#<----------------------------------------------------------Word_is_plaindrome_or_not-start------------------------------------------------------------------------->
+
 #Method 1: Using slice
 s = 'malayalam'
 def is_pailndrome(s:str):
@@ -163,6 +155,9 @@ def is_pailndrome(s:str):
         if new[i] == new[i][::-1]:
             new.remove(new[i])
     return ' '.join(new)
+#<----------------------------------------------------------Word_is_plaindrome_or_not-End------------------------------------------------------------------------->
+
+#<----------------------------------------------------------concatenate_words-start------------------------------------------------------------------------------->
 
 # join two string using + operator
 string1 = "hello"
@@ -176,10 +171,17 @@ def join_strings(string1,string2):
     result = " ".join([string1,string2])
     return result
 
-#white spaces remove given string
+#<----------------------------------------------------------concatenate_words-End-------------------------------------------------------------------------------->
+
+#<----------------------------------------------------------white_spaces_remove_given_string-start------------------------------------------------------------------------------->
+
 string_with_spaces = "Hello   World\t\nPython"
 result = ''.join(char for char in string_with_spaces if not char.isspace())
 print('reomve space :',result)
+
+#<----------------------------------------------------------white_spaces_remove_given_string-End------------------------------------------------------------------------------->
+
+#<----------------------------------------------------------Convert_string_to_int-start------------------------------------------------------------------------------->
 
 #  function to convert string to int with a fallback (when it’s not numbers) of 0
 def string_to_int(s:str,fall_back=0)->int:
@@ -189,9 +191,8 @@ def string_to_int(s:str,fall_back=0)->int:
         return fall_back
 
 print(string_to_int('123'))
+#<----------------------------------------------------------Convert_string_to_int-start------------------------------------------------------------------------------->
 
-
-#longest word in a string
 def logest_word(s:str)->str:
     words = s.split()
     max_word = words[0]
@@ -202,3 +203,5 @@ def logest_word(s:str)->str:
 
 s = 'welcome to the programming world of python'
 print(logest_word(s))
+
+#<----------------------------------------------------------longest_word_in_a_string-End------------------------------------------------------------------------------->

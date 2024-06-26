@@ -1,4 +1,26 @@
 
+# <-----------------------------------------------------------------Find_maximum_number-Start------------------------------------------------------------------------------------->
+#Using for loop
+def find_max(array):
+   max_item = array[0]
+   for item in array:
+       if item > max_item:
+           max_item = item
+   return max_item
+
+array = [1,5,9,2,3,6,7,3,8]
+print(find_max(array))
+
+#Using max() inbuilt method
+result = max(array)
+print(result)
+
+#Using sorted() inbuilt methods and Slice
+result = sorted(array)
+print(result[-1])
+
+# <-----------------------------------------------------------------Find_maximum_number-End------------------------------------------------------------------------------------->
+
 # <-----------------------------------------------------------------Reomve Duplicate--Start--------------------------------------------------------------------------->
 
 #Remove duplicate elments without using extra memory or variable
@@ -126,55 +148,6 @@ def is_palindrome1(string):
 
 print(is_palindrome1('malayalam'))
 #<------------------------------------------------------------------Find Is palindrom--End------------------------------------------------------------------------->
-#<------------------------------------------------------------------Find Is fibnoci series--start-------------------------------------------------------------------->
-
-def fibonacci_series(n):
-    fib_series = []
-    a, b = 0, 1
-    while a < n:
-        fib_series.append(a)
-        a, b = b, a + b
-    return fib_series
-
-n = 10  # Print Fibonacci series up to 10
-fib_series = fibonacci_series(n)
-print(fib_series)
-
-def fib_series(n):
-    if n <= 0:
-        return []
-    elif n == 1:
-        return [0]
-    
-    fib = [0, 1]
-    while len(fib) < n:
-        fib.append(fib[-1] + fib[-2])
-    return fib
-
-def fibnoci_generator(stop):
-    current_fib,next_fib = 0,1
-    for _ in range(0,stop):
-        fib_number = current_fib
-        current_fib,next_fib = next_fib,current_fib + next_fib
-        yield fib_number
-
-result = list(fibnoci_generator(10))
-
-def factorial_recursive(n):
-    # Base case: factorial of 0 or 1 is 1
-    if n == 0 or n == 1:
-        return 1
-    # Recursive case: factorial of n is n times factorial of (n-1)
-    else:
-        return n * factorial_recursive(n - 1)
-
-def factorial_iterative(n):
-    result = 1
-    # Multiply result by numbers from 1 to n
-    for i in range(1, n + 1):
-        result *= i
-    return result
-#<------------------------------------------------------------------Find Is fibnoci series--End-------------------------------------------------------------------->
 
 #<------------------------------------------------------------------Move negative to right and posative to left--Start-------------------------------------------------->
 

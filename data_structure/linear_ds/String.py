@@ -205,3 +205,16 @@ s = 'welcome to the programming world of python'
 print(logest_word(s))
 
 #<----------------------------------------------------------longest_word_in_a_string-End------------------------------------------------------------------------------->
+
+#<----------------------------------------------------------Write_code_to_Check_if_two_strings_are_Anagram_or_not-Start---------------------------------------------->
+
+def isAnagram(string1,string2):
+    if len(string1) != len(string2):
+        return False
+    else:
+        string1 = sorted(string1)
+        string2 = sorted(string2)
+    return True if string1 == string2 else False
+
+print(isAnagram('helow','woleh'))
+#<----------------------------------------------------------Write_code_to_Check_if_two_strings_are_Anagram_or_not-End------------------------------------------------>

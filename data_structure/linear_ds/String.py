@@ -191,7 +191,8 @@ def string_to_int(s:str,fall_back=0)->int:
         return fall_back
 
 print(string_to_int('123'))
-#<----------------------------------------------------------Convert_string_to_int-start------------------------------------------------------------------------------->
+#<----------------------------------------------------------Convert_string_to_int-End------------------------------------------------------------------------------->
+#<----------------------------------------------------------longest_word_in_a_string-Start------------------------------------------------------------------------------->
 
 def logest_word(s:str)->str:
     words = s.split()
@@ -218,3 +219,47 @@ def isAnagram(string1,string2):
 
 print(isAnagram('helow','woleh'))
 #<----------------------------------------------------------Write_code_to_Check_if_two_strings_are_Anagram_or_not-End------------------------------------------------>
+
+#<----------------------------------------------------------find_second_most_frequent_character-Start---------------------------------------------------------------->
+
+'''
+
+1.Using count in a loop: Each call to count scans the entire string, leading to O(n) time for each call, and if called in a loop, it results in (n^2) complexity.
+
+2.Using a dictionary: Counting frequencies in a single pass and then processing the dictionary results in  O(n) complexity.
+
+'''
+def findSecondFC(word):  #Using counting for count() method
+    largest = word[0]
+    second_largest = ''
+    for char in word:
+        if word.count(char) > word.count(largest):
+            second_largest = largest
+            largest = char
+    return second_largest
+
+word = 'aabbbccccddddd'
+print(findSecondFC(word))
+
+
+def findSecondFC(word):  #Using Dictionary for counting
+    frequency = {}
+    for char in word:
+        if char in frequency:
+            frequency[char] +=1
+        else:
+            frequency[char] = 1
+    largest = None
+    second_largest = None
+    for char,count in frequency.items():
+        if largest is None or count > frequency[largest]:
+            second_largest = largest
+            largest = char
+        elif second_largest is None or count > frequency(second_largest):
+            second_largest = char
+    return second_largest
+
+
+
+#<----------------------------------------------------------find_second_most_frequent_character-End------------------------------------------------------------------>
+

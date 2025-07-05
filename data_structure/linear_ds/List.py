@@ -1,5 +1,117 @@
+# <-----------------------------------------------------------------Basics_Of_List-Start----------------------------------------------------------------------------->
+'''
+List
+Properties:
 
-# <-----------------------------------------------------------------Find_maximum_number-Start------------------------------------------------------------------------------------->
+Ordered
+Mutable (modifiable)
+Allows duplicate elements
+
+Use Case:
+
+Use lists when you need an ordered collection of items that may change over time (e.g., adding, removing, or modifying elements).
+Suitable for sequences of homogeneous data (e.g., a list of numbers or strings).
+
+'''
+
+# 1.CREATION :-
+
+my_list = [1,2,3,4,5,6,7]
+
+# 2.ACCESSING ELEMENT
+
+first_element = my_list[0]
+last_element = my_list[-1]
+
+# 3.SLICING
+
+sub_list = my_list[1:4]  #2,3,4
+
+# 4.ADDING ELEMENT
+
+my_list.append(8)  #Add an element at the end of the list.
+
+my_list.extend([9,10])  #Add all elements of another list.
+
+my_list.insert(2,2.5)  # Add an element at a specific position.
+
+# 5.REMOVING ELEMENTS
+
+my_list.remove(2.5)  # Remove the first occurrence of an element.
+
+element = my_list.pop(2)  #  Remove and return an element at a specific position.
+
+my_list.clear()  # Remove all elements from the list
+
+# 6.FINDING ELEMENTS
+
+index = my_list.index(3)  # Find the index of the first occurrence of an element.
+
+count = my_list.count(3)  # Count the number of occurrences of an element.
+
+# 7.SORTING
+
+my_list.sort()  #Sort the list in ascending order.
+
+my_list.sort(reverse=True)  # Reverse Sort
+
+sorted_list = sorted(my_list)  # Return a new sorted list.
+
+# 8.REVERSING
+
+my_list.reverse()  #Reverse the elements of the list in place.
+
+# 9.LENGTH
+
+length = len(my_list)
+
+# 10.COPYING
+
+new_list = my_list.copy()
+
+# <-----------------------------------------------------------------Basics_Of_List-End------------------------------------------------------------------------------->
+
+# <-----------------------------------------------------------------List_Supporting_Functions-Start------------------------------------------------------------------>
+
+# 1.Any: Returns True if any element of the list is true.
+
+result = any([False, True, False])  # True
+
+# 2.All: Returns True if all elements of the list are true.
+
+result = all([True, True, True])  # True
+
+# 3.Map: Apply a function to all items in the list.
+
+def square(x):
+    return x * x
+
+squared_list = list(map(square,my_list))
+
+# 4.Filter: Construct a list from those elements of the list for which a function returns true.
+
+def is_even(x):
+    return x % 2 == 0
+even_list = list(filter(is_even,my_list))
+
+# 5.List Comprehensions: Provide a concise way to create lists.
+
+squared_list = [x * x for x in my_list]
+
+# 6.Combine elements of multiple lists.
+
+list1 = [1,2,3]
+list2 = ['a','b','c']
+zipped = list(zip(list1,list2)) # [(1, 'a'), (2, 'b'), (3, 'c')]
+
+# 7.Enumerate: Get the index and value during iteration.
+
+for index,val in enumerate(my_list):
+    print(f'index:{index}, value:{val}')
+
+# <-----------------------------------------------------------------List_Supporting_Functions-Start------------------------------------------------------------------>
+
+# <-----------------------------------------------------------------Find_maximum_number-Start------------------------------------------------------------------------>
 #Using for loop
 def find_max(array):
    max_item = array[0]
@@ -19,7 +131,7 @@ print(result)
 result = sorted(array)
 print(result[-1])
 
-# <-----------------------------------------------------------------Find_maximum_number-End------------------------------------------------------------------------------------->
+# <-----------------------------------------------------------------Find_maximum_number-End--------------------------------------------------------------------------->
 
 # <-----------------------------------------------------------------Reomve Duplicate--Start--------------------------------------------------------------------------->
 
@@ -73,20 +185,33 @@ print(result)
 #<------------------------------------------------------------------Find missing elements in an array--End----------------------------------------------------------->
 
 #<------------------------------------------------------------------Find prime numbers in given arra--Start---------------------------------------------------------->
+# 1.Using Square Root Method
 def isprime(num):
     if num < 2:
         return False
     for n in range(2, int(num**0.5) + 1):
         if num % n == 0:
             return False
-    return True
-
-arr = [1, 2, 3, 4, 5, 7, 8, 9, 11, 13, 12, 14, 15]
+    return True2, 3, 4, 5, 7, 8, 9, 11, 13, 12, 14, 15]
 
 print("Prime numbers in the list arr are:")
+
 for num in arr:
     if isprime(num):
         print(num, end=" ")
+
+# 2.Using Flag method
+
+def isprime(arr):
+    for num in arr:
+        flag = 0
+        for j in range(2,num):
+            if num % j == 0:
+                flag = 1
+                break
+        if flag == 0:
+            print(num,end=' ')
+
 #<------------------------------------------------------------------Find prime numbers in given arra--End------------------------------------------------------------->
 
 #<------------------------------------------------------------------Find sum numbers in given arra using recursion--Start--------------------------------------------->

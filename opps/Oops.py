@@ -419,7 +419,32 @@ class Cat(Animal):
     def speak(self):
         return "Meow!"
 
-#<----------------------------------------------------------------------Polymorphism--Start---------------------------------------------------------------------------->
+#<----------------------------------------------------------------------Polymorphism--End---------------------------------------------------------------------------->
+
+#<----------------------------------------------------------------------Method-Overriding--Start---------------------------------------------------------------------->
+class Animal:
+    def __init__(self, species):
+        self.species = species
+
+    def get_species(self):
+        return self.species
+
+class Dog(Animal):
+    def __init__(self, species, name):
+        # Call the superclass constructor
+        super().__init__(species)
+        self.name = name
+
+    def get_name(self):
+        return self.name
+
+# Create an instance of the Dog class
+dog = Dog("Canine", "Buddy")
+
+print(dog.get_species())  # Output: Canine
+print(dog.get_name())     # Output: Buddy
+
+#<----------------------------------------------------------------------Method-Overriding--End---------------------------------------------------------------------->
 
 #<----------------------------------------------------------------------Duck Typing----------------------------------------------------------------------------------->
 

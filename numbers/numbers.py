@@ -1,4 +1,4 @@
-#<------------------------------------------------------------Write a code to reverse a number---------------------------------------------------------------------->
+#<------------------------------------------------------------Write a code to reverse a number--Start--------------------------------------------------------------->
 def reverse_number(number):
     temp = number
     reverse = 0
@@ -9,7 +9,22 @@ def reverse_number(number):
     return (temp,reverse)
 
 print(reverse_number(10))
-#<------------------------------------------------------------Write_a_code_to_reverse_a_number---------------------------------------------------------------------->
+#<------------------------------------------------------------Write_a_code_to_reverse_a_number--End----------------------------------------------------------------->
+#<------------------------------------------------------------Write_a_code_to_generate_prime_numbers--Start--------------------------------------------------------->
+def generate_prime_numbers(n):
+   for i in range(2,n):
+      flag = 0
+      for j in range(2,i):
+         if i % j == 0:
+            flag = 1
+            break
+      if flag == 0:
+         print(i,end=' ')
+
+generate_prime_numbers(10)
+
+#<------------------------------------------------------------Write_a_code_to_generate_prime_numbers--End----------------------------------------------------------->
+
 #<------------------------------------------------------------Write_the_code_to_find_the_Fibonacci_series_upto_the_nth_term.---------------------------------------->
 #using loop with three varibles
 def fibnoci_series(number):
